@@ -45,7 +45,7 @@ class MainApp(QMainWindow , ui):
         self.settingsBtn.clicked.connect(self.open_Settings_tab)
         self.addBookBtn.clicked.connect(self.add_New_Book)
         self.addNewCategryBtn.clicked.connect(self.add_category)
-        self.addautherBtn.clicked.connect(self.add_Author)  #if addautherBtn clicked then goto add_auther method
+        self.addauthorBtn.clicked.connect(self.add_Author)  #if addauthorBtn clicked then goto add_author method
         self.addpublisherBtn.clicked.connect(self.add_Publisher)    #if addpublisherBtn clicked then goto add_publisher method
         self.searchBtn.clicked.connect(self.search_Book)
         self.updateBookBtn.clicked.connect(self.edit_Book)
@@ -53,6 +53,7 @@ class MainApp(QMainWindow , ui):
 
         self.pushButton_addNewUser.clicked.connect(self.add_New_user)
         self.pushButton_userlogin.clicked.connect(self.login_user)
+        self.pushButton_editUserInfoBtn.clicked.connect(self.edit_user)
 
     def Show_themes(self):
         """This show the theme dialogbox after button pressed"""
@@ -217,7 +218,24 @@ class MainApp(QMainWindow , ui):
                     
 
     def edit_user(self):
-        pass
+        loggedin_user = self.lineEdit_loginUsername.text()
+        edit_username = self.lineEdit_editUsername.text()
+        edit_email = self.lineEdit_editEmail.text()
+        edit_password1 = self.lineEdit_editPassword1.text()
+        edit_password2 = self.lineEdit_editPassword2.text()
+
+        if edit_password1 == edit_password2:
+            warning = QMessageBox.warning(self, 'Update User',"Are you sure  want to update User Information?", QMessageBox.Yes | QMessageBox.No)
+            if warning == QMessageBox.Yes:
+                self.db_connect()
+                self.cur.execute("UPDATE library.users SET username=%s,email=%s,password=%s WHERE username=%s",(edit_username,edit_email,edit_password1,loggedin_user))
+                self.db.commit()
+                self.statusBar().showMessage("user {} Updated".format(edit_username))
+                self.lineEdit_loginUsername.setText(edit_username)
+        else:
+            self.statusBar().showMessage("Password not matched")
+
+
 
     """Settings"""
     def add_category(self):

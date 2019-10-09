@@ -1029,7 +1029,7 @@
       <property name="title">
        <string>Edit User Information</string>
       </property>
-      <widget class="QPushButton" name="pushButton_11">
+      <widget class="QPushButton" name="pushButton_editUserInfoBtn">
        <property name="geometry">
         <rect>
          <x>190</x>
@@ -1161,7 +1161,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_9">
        <attribute name="title">
@@ -1221,7 +1221,7 @@
       </widget>
       <widget class="QWidget" name="tab_10">
        <attribute name="title">
-        <string>Auther</string>
+        <string>Author</string>
        </attribute>
        <widget class="QLabel" name="label_28">
         <property name="geometry">
@@ -1233,10 +1233,10 @@
          </rect>
         </property>
         <property name="text">
-         <string>New Category Name</string>
+         <string>New Author</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="addautherBtn">
+       <widget class="QPushButton" name="addauthorBtn">
         <property name="geometry">
          <rect>
           <x>460</x>
@@ -1246,7 +1246,7 @@
          </rect>
         </property>
         <property name="text">
-         <string>Add New Auther</string>
+         <string>Add New Author</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_author">
@@ -1270,7 +1270,7 @@
         </property>
         <column>
          <property name="text">
-          <string>Auther Name</string>
+          <string>Author Name</string>
          </property>
         </column>
        </widget>
